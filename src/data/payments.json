@@ -1,0 +1,62 @@
+[
+  {
+    "name": "fundamentals-membership",
+    "product": "Fundamentals Membership",
+    "price": "30000",
+    "type": "membership",
+    "description": "At this level, you'll receive access to the tools you need to ace the CDMP Fundamentals Exam and grow your Data Strategy career."
+  },
+  {
+    "name": "specialist-membership",
+    "product": "Specialist Membership",
+    "price": "30000",
+    "type": "membership",
+    "description": "At this level, you'll receive access to the tools you need to ace the two Specialist Exams of your choosing and attain the Practitioner or Master level certification."
+  },
+  {
+    "name": "test-product1",
+    "product": "Testproduct1",
+    "price": "100",
+    "type": "membership",
+    "description": "At this level, you'll receive access to the tools you need to ace the CDMP Fundamentals Exam and grow your Data Strategy career."
+  },
+  {
+    "name": "test-product2",
+    "product": "Testproduct2",
+    "price": "100",
+    "type": "membership",
+    "description": "At this level, you'll receive access to the tools you need to ace the CDMP Fundamentals Exam and grow your Data Strategy career."
+  },
+  {
+    "name": "cdmp-study-plan-90-days",
+    "product": "Certified Data Management Professional Study Plan",
+    "price": "5900",
+    "type": "email",
+    "description": "Maximize your time, energy, and motivation to become a Data Strategist. Each week, you can expect 3-4 emails covering each of the 14 chapters tested on the exam.",
+    "list": 7
+  },
+  {
+    "name": "cdmp-study-plan-immediate-access",
+    "product": "Certified Data Management Professional Study Plan",
+    "price": "5900",
+    "type": "email",
+    "description": "Maximize your time, energy, and motivation to become a Data Strategist. You'll receive <strong>Immediate Access</strong> to the entire CDMP Study Plan via email.",
+    "list": 16
+  },
+  {
+    "name": "breaking-12-weeks",
+    "product": "Breaking into Data Science Email Bootcamp",
+    "price": "2900",
+    "type": "email",
+    "description": "Level up with 3-4 emails over 12 weeks providing the resources, articles, videos, and tutorials that will help you advance your Data Science career.",
+    "list": 9
+  },
+  {
+    "name": "breaking-immediate-access",
+    "product": "Breaking into Data Science Email Bootcamp",
+    "price": "2900",
+    "type": "email",
+    "description": "Level up with 3-4 emails over 12 weeks providing the resources, articles, videos, and tutorials that will help you advance your Data Science career.",
+    "list": 17
+  }
+]

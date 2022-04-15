@@ -1,0 +1,27 @@
+# The following redirect is intended for use with most SPAs that handle
+# routing internally.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[[headers]]
+# Define which paths this specific [[headers]] block will cover.
+for = "/*"
+  [headers.values]
+  Access-Control-Allow-Origin = "*"
+  
+[build]
+  functions = "functions/" # netlify dev uses this directory to scaffold and serve your functions
+
+[dev]
+  command = "npm run start"
+  port = 8888
+  targetPort = 3000
+  publish = "dist" 
+  autoLaunch = true
+  framework = "create-react-app"
+
+[functions]
+  directory = "functions"
+  included_files = ["./src/data/payments.json"]
