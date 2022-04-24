@@ -1,13 +1,11 @@
+import mailchimp from "@mailchimp/mailchimp_marketing";
 require("dotenv").config();
 const fs = require("fs").promises;
 
-const mc = require("@mailchimp/mailchimp_marketing");
-
-const API_KEY = process.env.MAILCHIMP_API_KEY;
 const LIST_ID = process.env.MAILCHIMP_LIST_ID;
 
-mc.setConfig({
-  apiKey: API_KEY,
+mailchimp.setConfig({
+  apiKey: process.env.MAILCHIMP_API_KEY,
   server: "us8",
 });
 
@@ -26,62 +24,61 @@ exports.handler = async function (event, context) {
 
   console.log(product);
 
-  const id = crypto
-    .createHash("md5")
-    .update(data.email.toLowerCase())
-    .digest("hex");
+  // const id = crypto
+  //   .createHash("md5")
+  //   .update(data.email.toLowerCase())
+  //   .digest("hex");
 
-  const mergeFields = {
-    EMAIL: data.email,
-    FNAME: data.firstName,
-    LNAME: data.lastName,
-  };
-
-  try {
-    mc.lists
-      .getListMember(LIST_ID, id)
-      .then(function (data) {
-        console.log("Existing subscriber.");
-        // Update subscriber with new tag
-        mc.lists.setListMember(LIST_ID, id, {
-          email_address: data.email,
-          status: "subscribed",
-          tags: [product.name],
-          merge_fields: mergeFields,
-        });
-        return {
-          statusCode: 400,
-          headers,
-          body: JSON.stringify({ response: "Updating existing customer" }),
-        };
-      })
-      .catch(function (err) {
-        console.log("Adding", data.email);
-        mc.lists.addListMember(LIST_ID, {
-          email_address: data.email,
-          status: "subscribed",
-          status_if_new: "subscribed",
-          merge_fields: mergeFields,
-          tags: [product.name],
-        });
-        return {
-          statusCode: 400,
-          headers,
-          body: JSON.stringify({ response: "Adding new customer" }),
-        };
-      });
-  } catch (err) {
-    console.log(err);
-    return {
-      statusCode: 400,
-      headers,
-      body: JSON.stringify({ error: err.message }),
-    };
-  } finally {
-    return {
-      statusCode: 400,
-      headers,
-      body: JSON.stringify({ response: "something happened" }),
-    };
-  }
+  // const mergeFields = {
+  //   EMAIL: data.email,
+  //   FNAME: data.firstName,
+  //   LNAME: data.lastName,
+  // };
+  // try {
+  //   mc.lists
+  //     .getListMember(LIST_ID, id)
+  //     .then(function (data) {
+  //       console.log("Existing subscriber.");
+  //       // Update subscriber with new tag
+  //       mc.lists.setListMember(LIST_ID, id, {
+  //         email_address: data.email,
+  //         status: "subscribed",
+  //         tags: [product.name],
+  //         merge_fields: mergeFields,
+  //       });
+  //       return {
+  //         statusCode: 400,
+  //         headers,
+  //         body: JSON.stringify({ response: "Updating existing customer" }),
+  //       };
+  //     })
+  //     .catch(function (err) {
+  //       console.log("Adding", data.email);
+  //       mc.lists.addListMember(LIST_ID, {
+  //         email_address: data.email,
+  //         status: "subscribed",
+  //         status_if_new: "subscribed",
+  //         merge_fields: mergeFields,
+  //         tags: [product.name],
+  //       });
+  //       return {
+  //         statusCode: 400,
+  //         headers,
+  //         body: JSON.stringify({ response: "Adding new customer" }),
+  //       };
+  //     });
+  // } catch (err) {
+  //   console.log(err);
+  //   return {
+  //     statusCode: 400,
+  //     headers,
+  //     body: JSON.stringify({ error: err.message }),
+  //   };
+  // } finally {
+  //   return {
+  //     statusCode: 400,
+  //     headers,
+  //     body: JSON.stringify({ response: "something happened" }),
+  //   };
+  // }
 };

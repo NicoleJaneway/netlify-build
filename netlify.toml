@@ -12,7 +12,8 @@ for = "/*"
   Access-Control-Allow-Origin = "*"
   
 [build]
-  functions = "functions/" # netlify dev uses this directory to scaffold and serve your functions
+  functions = "functions" # netlify dev uses this directory to scaffold and serve your functions
+  publish = "build"
 
 [dev]
   command = "npm run start"
@@ -24,4 +25,6 @@ for = "/*"
 
 [functions]
   directory = "functions"
+  node_bundler = "esbuild"
+  external_node_modules = ["@mailchimp/mailchimp_marketing", "dotenv", "sib-api-v3-sdk", "stripe"]
   included_files = ["./src/data/payments.json"]

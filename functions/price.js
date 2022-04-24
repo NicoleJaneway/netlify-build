@@ -1,7 +1,5 @@
 const fs = require("fs").promises;
 
-require("dotenv").config();
-
 const headers = {
   "Access-Control-Allow-Origin": "*",
   "Access-Control-Allow-Headers": "Content-Type",
